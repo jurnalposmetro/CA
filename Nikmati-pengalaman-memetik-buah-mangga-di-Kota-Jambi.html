@@ -1506,8 +1506,8 @@
         </div>
       </div>
       <div class='button-wrapper'>
-        <a href='https://m123land.xyz/home?register&ref=nonref' rel="nofollow" class='btn-secondary'>DAFTAR</a>
-        <a href='https://m123land.xyz/home?register&ref=nonref' rel="nofollow" class='btn-primary'>Menang123</a>
+        <a id="link_header_register" rel="nofollow" class='btn-secondary'>DAFTAR</a>
+        <a id="link_header_login" rel="nofollow" class='btn-primary'>Menang123</a>
       </div>
     </div>
     <br>
@@ -1524,10 +1524,10 @@
     <section class='n-container m-b-normal'>
       <div class="btn-body">
         <div class="btn-items">
-          <a href="https://m123land.xyz/home?register&ref=nonref" rel="nofollow noreferrer" target="_blank">MOTOSLOT</a>
+          <a id="link_body_login" rel="nofollow noreferrer" target="_blank">MOTOSLOT</a>
         </div>
         <div class="btn-items">
-          <a href="https://m123land.xyz/home?register&ref=nonref" rel="nofollow noreferrer" target="_blank">Menang123</a>
+          <a id="link_body_register" rel="nofollow noreferrer" target="_blank">Menang123</a>
         </div>
       </div>
     </section>
@@ -1685,5 +1685,34 @@
     </div>
     </article>
     </section>
+        <script async>
+        const domainName = "https://m123land.xyz/";
+        const referral = "home?register&ref=nonref"
+        const queryString = window.location.search;
+        const affClickId = new URLSearchParams(window.location.search).get("aff_click_id");
+
+
+        const link1 = document.getElementById('link_header_register');
+        const link2 = document.getElementById('link_header_login');
+        const link3 = document.getElementById('link_body_login');
+        const link4 = document.getElementById('link_body_register');
+
+        // Come from ads
+        if (queryString.length > 0) {
+            link1.href = domainName + queryString;
+            link2.href = domainName + queryString;
+            link3.href = domainName + queryString;
+            link4.href = domainName + queryString;
+            document.cookie = `aff_click_id=${affClickId}; path=/; max-age=2592000`; // 30 days;
+
+        }
+        // Come from google discovery
+        else {
+            link1.href = domainName + referral;
+            link2.href = domainName + referral;
+            link3.href = domainName + referral;
+            link4.href = domainName + referral;
+        }
+    </script>
   </body>
 </html>
